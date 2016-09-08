@@ -1,7 +1,6 @@
 $(function () {
-	alert(menu);
-	switch(menu) {
 
+	switch(menu) {
 		case 'about':
 			$('#about').addClass('active')
 			break;		
@@ -12,5 +11,5 @@ $(function () {
 			$('#home').addClass('active');
 			break;
 	}
-})
+});
 

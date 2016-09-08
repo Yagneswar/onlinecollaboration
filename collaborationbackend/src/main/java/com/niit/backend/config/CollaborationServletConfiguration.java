@@ -12,15 +12,14 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan(basePackages = "com.niit.backend")
-public class CollaborationConfiguration extends WebMvcConfigurerAdapter{
+public class CollaborationServletConfiguration extends WebMvcConfigurerAdapter{
 
 	@Bean
 	 public ViewResolver viewResolver() {
-        InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
-        viewResolver.setViewClass(JstlView.class);
-        viewResolver.setPrefix("/WEB-INF/views/");
-        viewResolver.setSuffix(".jsp");
-        return viewResolver;
-	}
-	
+       InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+       viewResolver.setViewClass(JstlView.class);
+       viewResolver.setPrefix("/WEB-INF/views/");
+       viewResolver.setSuffix(".jsp");
+       return viewResolver;
+	}	
 }

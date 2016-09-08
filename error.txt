@@ -1,0 +1,6 @@
+Error: - 
+Exception encountered during context initialization - cancelling refresh attempt
+Solution: - 
+For testing remove @EnableWebMvc annotation
+http://stackoverflow.com/questions/21516683/java-lang-illegalargumentexception-a-servletcontext-is-required-to-configure-de
+

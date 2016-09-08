@@ -7,13 +7,13 @@ public class CollaborationInitializer extends AbstractAnnotationConfigDispatcher
 	@Override
 	protected Class<?>[] getRootConfigClasses() {
 		// TODO Auto-generated method stub
-		return null;
+		return new Class[] { CollaborationRootConfiguration.class};
 	}
 
 	@Override
 	protected Class<?>[] getServletConfigClasses() {
 		// TODO Auto-generated method stub
-		return new Class[] { CollaborationConfiguration.class};
+		return new Class[] { CollaborationServletConfiguration.class};
 	}
 
 	@Override
