@@ -3,11 +3,12 @@ package com.niit.backend.dao;
 import java.util.List;
 
 import com.niit.backend.entity.Blog;
+import com.niit.backend.model.BlogListModel;
 
 public interface BlogDAO {
 	
    Blog find(String id);
-   List<Blog> findAll();
+   List<BlogListModel> findAll();
    void saveOrUpdate(Blog blog);
    void delete(String id);
 	

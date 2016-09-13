@@ -4,19 +4,24 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
 			templateUrl: 'app/components/page/homeView.html',
 			controller: 'HomeController',
 			controllerAs: 'homeCtrl'
-		}).
-		when('/about/', {
+		})
+		.when('/about/', {
 			templateUrl: 'app/components/page/aboutView.html',
 			controller: 'AboutController',
 			controllerAs: 'aboutCtrl'
-		}).
-		when('/contact/', {
+		})
+		.when('/contact/', {
 			templateUrl: 'app/components/page/contactView.html',
 			controller: 'ContactController',
 			controllerAs: 'contactCtrl'
-		}).
-		otherwise({
+		})
+		.when('/blog/', {
+			templateUrl: 'app/components/blog/blogView.html',
+			controller: 'BlogController',
+			controllerAs: 'blogCtrl'
+		})
+		.otherwise({
 			redirectTo: '/home/'
 		})
-	//$locationProvider.html5Mode(true); // requires a base tag	
+	$locationProvider.html5Mode(true); // requires a base tag	
 }]);

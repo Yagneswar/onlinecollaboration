@@ -8,25 +8,40 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.niit.backend.entity.Blog;
+import com.niit.backend.model.BlogListModel;
 
 @Repository ("blogDAO")
 @Transactional
 public class BlogDAOImpl implements BlogDAO {
 
 	@Autowired
-	SessionFactory sessionFactory;
+	private SessionFactory sessionFactory;
 	
 		
 	@Override
-	public Blog find(String id) {
-		// TODO Auto-generated method stub
-		return null;
+	public Blog find(String id) {		
+		return this.sessionFactory.getCurrentSession().get(Blog.class, id);
 	}
 
 	@Override
-	public List<Blog> findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<BlogListModel> findAll() {
+		String queryStr = "SELECT NEW com.niit.backend.model.BlogListModel("
+				+ "b.id, b.title, b.content, b.createdAt, count(elements(b.comments))"
+				+ ")"
+				+ " FROM Blog as b"
+				+ " ORDER BY b.createdAt";
+//		Session session = this.sessionFactory.getCurrentSession();
+//		Criteria crit = session.createCriteria(Blog.class);
+//		ProjectionList projList = Projections.projectionList();
+//		projList.add(Projections.property("title"),"title");
+//		projList.add(Projections.property("createdAt"), "createdAt");
+//		projList.add(Projections.property("content"), "content");
+//		crit.setResultTransformer(Transformers.aliasToBean(Blog.class));
+//		crit.addOrder(Order.asc("createdAt"));
+//		List<Blog> results = crit.list();
+//		return results;
+		return this.sessionFactory.getCurrentSession().createQuery(queryStr).list();
+		
 	}
 
 	@Override

@@ -12,14 +12,14 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
-import org.springframework.web.servlet.ViewResolver;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
-import org.springframework.web.servlet.view.JstlView;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import com.niit.backend.entity.Blog;
+import com.niit.backend.entity.Comment;
 
 @Configuration
 @ComponentScan(basePackages = "com.niit.backend")
+@EnableWebMvc
 @EnableTransactionManagement
 public class CollaborationRootConfiguration {
 	
@@ -47,6 +47,7 @@ public class CollaborationRootConfiguration {
 		LocalSessionFactoryBuilder sessionBuilder = new LocalSessionFactoryBuilder(dataSource);		
 		sessionBuilder.addProperties(getHibernateProperties());
 		sessionBuilder.addAnnotatedClass(Blog.class);
+		sessionBuilder.addAnnotatedClass(Comment.class);
 		return sessionBuilder.buildSessionFactory();
 	}
 

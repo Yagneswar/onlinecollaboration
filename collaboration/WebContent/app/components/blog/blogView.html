@@ -1,0 +1,14 @@
+<div>
+	
+	<div ng-repeat="blog in blogCtrl.blogs">
+		
+		<div>{{blog.title}}</div>
+
+		<div ng-repeat="comment in blog.comments">
+			
+			<div>{{comment.comment}}</div>
+
+		</div>
+	</div>
+
+</div>
