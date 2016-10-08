@@ -21,10 +21,15 @@ public class BlogController {
 	      
 	    @GetMapping(value = "/blogs")
 	    public ResponseEntity<List<BlogListModel>> listAllBlogs() {
+	    	
+	    	// fetch all the blogs
+	    	
 	        List<BlogListModel> blogs = blogDAO.findAll();
+	        
 	        if(blogs.isEmpty()){
 	            return new ResponseEntity<List<BlogListModel>>(HttpStatus.NO_CONTENT);//You many decide to return HttpStatus.NOT_FOUND
 	        }
+	        
 	        return new ResponseEntity<List<BlogListModel>>(blogs, HttpStatus.OK);
 	    }
 }

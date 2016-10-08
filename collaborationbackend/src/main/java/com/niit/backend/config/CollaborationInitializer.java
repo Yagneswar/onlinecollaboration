@@ -21,7 +21,8 @@ public class CollaborationInitializer extends AbstractAnnotationConfigDispatcher
 	protected String[] getServletMappings() {
 		return new String [] {"/"};
 	}
-		
+	
+	
 	@Override
 	protected Filter[] getServletFilters() {
 		Filter [] singleton = {new CORSFilter()};

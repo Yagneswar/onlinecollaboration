@@ -37,7 +37,9 @@ public class BlogTest {
 		comment.setUserId("USR002");
 		comment.setComment("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde obcaecati. Some comment for blog one");
 		comment.setCommentedAt(new Date());
+		
 		comment.setBlog(blog);		
+		
 		commentDAO.saveOrUpdate(comment);
 		
 		comment = new Comment();		
@@ -45,7 +47,17 @@ public class BlogTest {
 		comment.setComment("Consectetur adipisicing elit. Unde obcaecati. Some comment for blog one");
 		comment.setCommentedAt(new Date());
 		comment.setBlog(blog);		
-		commentDAO.saveOrUpdate(comment);		
+		commentDAO.saveOrUpdate(comment);
+		
+		blog = new Blog();		
+		blog.setTitle("This is my second blog!");
+		blog.setContent("Lorem ipsum dolor sit amet, consectetur adipisicing elit. Unde obcaecati, aspernatur a tempora, ratione atque repellat at dolore sapiente iusto doloribus neque magnam id voluptatum rerum sint sit facere nemo.");
+		blog.setCreatedAt(new Date());
+		blog.setStatus("APPROVED");
+		blog.setUserId("USR002");	
+		blogDAO.saveOrUpdate(blog);
+		
+		
 		context.close();		
 	}
 	

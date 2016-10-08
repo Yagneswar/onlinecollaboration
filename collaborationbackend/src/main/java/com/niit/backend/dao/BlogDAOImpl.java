@@ -26,9 +26,10 @@ public class BlogDAOImpl implements BlogDAO {
 	@Override
 	public List<BlogListModel> findAll() {
 		String queryStr = "SELECT NEW com.niit.backend.model.BlogListModel("
-				+ "b.id, b.title, b.content, b.createdAt, count(elements(b.comments))"
+				+ "b.id, b.title, b.content, b.createdAt, count(c)"
 				+ ")"
-				+ " FROM Blog as b"
+				+ " FROM Blog as b LEFT JOIN b.comments as c"
+				+ " GROUP BY b.id"
 				+ " ORDER BY b.createdAt";
 //		Session session = this.sessionFactory.getCurrentSession();
 //		Criteria crit = session.createCriteria(Blog.class);

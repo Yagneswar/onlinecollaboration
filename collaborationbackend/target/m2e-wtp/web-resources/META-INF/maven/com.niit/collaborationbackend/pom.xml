@@ -7,6 +7,9 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>collaborationbackend Maven Webapp</name>
 	<url>http://maven.apache.org</url>
+	<!-- Properties will make sure all the dependent dependencies are also
+			of the same version
+	  -->
 	<properties>
 		<junit.version>4.12</junit.version>
 		<spring.version>4.3.2.RELEASE</spring.version>
@@ -33,6 +36,7 @@
 			<version>7.0</version>
 			<scope>provided</scope>
 		</dependency>
+		
 		
 		<!-- JSTL Core -->
 		<dependency>
@@ -89,6 +93,7 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
+			<!--  Work with the latest version of Java -->
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.1</version>
